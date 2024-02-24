@@ -2,8 +2,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
   import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
- 
+import { getFirestore  ,collection, addDoc  } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
   const firebaseConfig = {
     apiKey: "AIzaSyBeh9PkZsKU0Fh6_i407QFJsjlyX3w-uEc",
     authDomain: "addi-blog.firebaseapp.com",
@@ -19,9 +18,11 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
+  const db = getFirestore(app);
 
   export {
     auth
-    ,createUserWithEmailAndPassword,signInWithEmailAndPassword
+    ,createUserWithEmailAndPassword,signInWithEmailAndPassword,
+    collection, addDoc,db
   }
 

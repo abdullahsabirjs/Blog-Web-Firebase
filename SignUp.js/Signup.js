@@ -1,13 +1,23 @@
-import { auth, createUserWithEmailAndPassword } from "../firebaseConfig.js";
+import { addDoc, auth, collection, createUserWithEmailAndPassword, db } from "../firebaseConfig.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("signupForm").addEventListener("submit", function(event) {
+    document.getElementById("signupForm").addEventListener("submit", async function(event) {
         event.preventDefault(); // Prevent the default form submission
-        
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         const confirmPassword = document.getElementById("confirm-password").value;
+        try {
+          const docRef = await addDoc(collection(db, "users"), {
+            name: name,
+            email: email,
+            password: password
+          });
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed up 

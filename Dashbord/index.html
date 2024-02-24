@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write and Ask | Addi-blogs </title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.logout-button {
+    padding: 8px 15px;
+    background-color: #db4437;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #c1351d;
+}
+
+.content {
+    padding: 20px;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ... existing CSS ... */
+
+.type-status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.type-selection,
+.status-selection {
+    display: flex;
+    align-items: center;
+}
+
+.type-selection label,
+.status-selection label {
+    margin-right: 10px;
+}
+
+/* Radio button alignment */
+input[type="radio"] {
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .type-status-container {
+        flex-direction: column;
+    }
+
+    .type-selection,
+    .status-selection {
+        margin-bottom: 10px;
+    }
+}
+
+/* ... remaining CSS ... */
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea,
+select,
+input[type="text"],
+input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.save-button,
+.cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logout-button {
+        margin-top: 10px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+   
+
+    <div class="content">
+        <h1>Creating Blog or Ask Question</h1>
+
+        <div class="form-container">
+            <form id="writeAskForm">
+                <!-- Title -->
+                <label for="title">Title:</label>
+                <textarea id="title" placeholder="Enter title here..."></textarea>
+        
+                <!-- Category Selection -->
+                <label for="category">Select Category:</label>
+                <select id="category">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JavaScript</option>
+                    <option value="react">React</option>
+                    <option value="nodejs">Node.js</option>
+                    <option value="mongodb">MongoDB</option>
+                    <option value="bootstrap">Bootstrap</option>
+                </select>
+        
+                <!-- Type and Status Container -->
+                <div class="type-status-container">
+                    <!-- Type Selection -->
+                    <div class="type-selection">
+                        <label>Type:</label>
+                        <input type="radio" id="blog" name="type" value="blog">
+                        <label for="blog">Blog</label>
+                        <input type="radio" id="question" name="type" value="question">
+                        <label for="question">Question</label>
+                    </div>
+        
+                    <!-- Status Selection -->
+                    <div class="status-selection">
+                        <label>Status:</label>
+                        <input type="radio" id="active" name="status" value="active">
+                        <label for="active">Active</label>
+                        <input type="radio" id="inactive" name="status" value="inactive">
+                        <label for="inactive">Inactive</label>
+                    </div>
+                </div>
+        
+                <!-- Image Upload -->
+                <label for="imageUpload">Upload Image:</label>
+                <input type="file" id="imageUpload" name="imageUpload">
+        
+                <!-- Description -->
+                <label for="description">Description:</label>
+                <textarea id="description" placeholder="Enter description here..."></textarea>
+        
+                <!-- Buttons -->
+                <button type="submit" class="save-button">Save</button>
+                <button type="button" class="cancel-button" onclick="clearForm()">Cancel</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <script>
+        // function clearForm() {
+        //     document.getElementById('writeAskForm').reset();
+        // }
+    </script>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
