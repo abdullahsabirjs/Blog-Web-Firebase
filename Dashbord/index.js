@@ -1,27 +1,29 @@
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('writeAskForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+// db.collection("users").doc("YOUR_USER_ID").get().then((doc) => {
+//     if (doc.exists) {
+//         const userData = doc.data();
+//         document.getElementById("userName").textContent = userData.name;
+//         document.getElementById("userId").textContent = `User ID: ${doc.id}`;
+//         document.getElementById("userImage").src = userData.image;
+//     } else {
+//         console.log("No such document!");
+//     }
+// }).catch((error) => {
+//     console.log("Error getting document:", error);
+// });
 
-        // Get the values from the form
-        const title = document.getElementById('title').value;
-        const category = document.getElementById('category').value;
-        const description = document.getElementById('description').value;
-        const imageUpload = document.getElementById('imageUpload').files[0]; // Get the image file
 
-        // Type and Status
-        let type = document.querySelector('input[name="type"]:checked')?.value;
-        let status = document.querySelector('input[name="status"]:checked')?.value;
 
-        // Logging values to console (for demonstration)
-        console.log(`Title: ${title}, Category: ${category}, Type: ${type}, Status: ${status}, Description: ${description}`);
-        if(imageUpload) console.log(`Image Filename: ${imageUpload.name}`);
+// import { db, doc, getDoc } from "../firebaseConfig.js";
 
-        // Here you can add code to handle the form data, including the image file
-        // For example, using FormData to append each field and send it via fetch API
-    });
-});
+// async function getData() {
+//     const docRef = doc(db, "users", "tcGf34NPYNL4zAuwCHbv");
+//     const docSnap = await getDoc(docRef);
 
-// Function to clear the form
-function clearForm() {
-    document.getElementById('writeAskForm').reset();
-}
+//     if (docSnap.exists()) {
+//         console.log("Document data:", docSnap.data());
+//     } else {
+//         console.log("No such document!");
+//     }
+// }
+
+// getData();

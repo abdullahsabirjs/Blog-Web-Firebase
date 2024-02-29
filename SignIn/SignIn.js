@@ -1,26 +1,43 @@
-import { auth, signInWithEmailAndPassword } from "../firebaseConfig.js";
+import { auth, signInWithEmailAndPassword, db, doc, getDoc } from "../firebaseConfig.js";
 
-document.getElementById('loginForm').addEventListener('submit', function (event) {
+document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault(); // Prevent the default form submission
 
     const email = document.getElementById('UserEmail').value;
     const password = document.getElementById('password').value;
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            if (user) {
-                console.log("sign in ", user);
 
-            }      // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage);
-        });
-    console.log('Login attempt with username:', email, 'and password:', password);
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log("Signed in user:", user.uid);
 
-    // Here, you would typically send these values to the server for authentication
-    // For example, using fetch() to make an AJAX request.
+        // Fetch the user document from the "users" collection using the UID
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+            // console.log("User document data:", userDocSnap.data());
+            let {uid,email,name} = userDocSnap.data()
+            // console.log(uid);
+            // console.log(email);
+            // console.log(name);
+            localStorage.setItem("user",
+                uid
+            )
+            changePage()
+            
+        } else {
+            console.error("No such document for the user!");
+        }
+    } catch (error) {
+        console.error("Error signing in:", error.message);
+    }
+
+    console.log('Login attempt with email:', email, 'and password:', password);
 });
+
+
+function changePage() {
+    console.log("Page  is  run");
+    window.location.href = "/Dashbord/index.html"
+}
