@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
         email: email,
         uid: user.uid
       });
+
       console.log("Document written with UID: ", user.uid);
+      locationChange()
 
     } catch (error) {
       console.error("Error adding document: ", error);
@@ -39,3 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add your AJAX request or form handling logic here
   });
 });
+
+
+function locationChange(){
+  window.location.href  = "/SignIn/SignIn.html"
+}

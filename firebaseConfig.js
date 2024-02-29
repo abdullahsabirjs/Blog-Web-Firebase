@@ -1,7 +1,7 @@
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-  import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
   import { getFirestore  ,collection, addDoc ,doc, getDoc ,setDoc} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
   const firebaseConfig = {
@@ -25,7 +25,7 @@
     auth
     ,createUserWithEmailAndPassword,signInWithEmailAndPassword,
     collection, addDoc,db
-    ,doc, getDoc,setDoc
+    ,doc, getDoc,setDoc,onAuthStateChanged,
   }
 
 //    <!-- <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>

@@ -13,17 +13,27 @@
 
 
 
-// import { db, doc, getDoc } from "../firebaseConfig.js";
+import { db, doc, getDoc } from "../firebaseConfig.js";
 
-// async function getData() {
-//     const docRef = doc(db, "users", "tcGf34NPYNL4zAuwCHbv");
-//     const docSnap = await getDoc(docRef);
+async function getData() {
+    let  uid = localStorage.getItem("user")
+    const docRef = doc(db, "users", uid);
+    const docSnap = await getDoc(docRef);
+    let {email,name} = docSnap.data()
+    writeDataUi(email,name)
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+    } else {
+        console.log("No such document!");
+    }
+}
 
-//     if (docSnap.exists()) {
-//         console.log("Document data:", docSnap.data());
-//     } else {
-//         console.log("No such document!");
-//     }
-// }
+getData();
 
-// getData();
+
+function   writeDataUi(email,name){
+    console.log(email);
+    console.log(name);
+    document.getElementById("userEmail").textContent = `User email: ${email}`;
+    document.getElementById("userName").textContent = name
+}

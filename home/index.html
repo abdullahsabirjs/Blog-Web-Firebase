@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="path/to/logo.png" alt="Blog Logo" class="logo">
+        <div class="nav-links">
+            <a href="../Dashbord/index.html" class="nav-button">Dashboard</a>
+            <a href="../WriteBlog/index.html" class="nav-button">Write a Blog</a>
+            <button class="nav-button" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <main class="blog-container">
+        <!-- Blog posts will be dynamically inserted here -->
+        <div class="blog-post">
+            <img src="path/to/blog-image.jpg" alt="Blog Post Image" class="blog-image">
+            <h2 class="blog-title">Blog Title</h2>
+            <p class="blog-content">Blog content goes here...</p>
+            <div class="comment-section">
+                <form class="comment-form">
+                    <input type="text" placeholder="Add a comment..." class="comment-input">
+                    <button type="submit" class="comment-button">Comment</button>
+                </form>
+            </div>
+        </div>
+        <!-- Repeat for each blog post -->
+    </main>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
