@@ -13,7 +13,8 @@
 
 
 
-import { db, doc, getDoc } from "../firebaseConfig.js";
+import { db, doc, getDoc,auth } from "../firebaseConfig.js";
+import { signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 async function getData() {
     let  uid = localStorage.getItem("user")
@@ -37,3 +38,16 @@ function   writeDataUi(email,name){
     document.getElementById("userEmail").textContent = `User email: ${email}`;
     document.getElementById("userName").textContent = name
 }
+
+
+
+document.getElementById('logoutButton').addEventListener('click', () => {
+    signOut(auth)
+        .then(() => {
+            console.log('User logged out successfully');
+            window.location.href = '../SignUp.js/Signup.html'; // Redirect to the signup page
+        })
+        .catch((error) => {
+            console.error('Error logging out:', error);
+        });
+});

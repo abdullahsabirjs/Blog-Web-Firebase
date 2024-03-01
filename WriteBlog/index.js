@@ -1,4 +1,5 @@
-import { auth, db, collection, onAuthStateChanged, addDoc, setDoc, doc } from "../firebaseConfig.js";
+import { db, doc, getDoc, collection, query, where, getDocs, onAuthStateChanged } from "../firebaseConfig.js";
+
 
 let uID;
 document.addEventListener("DOMContentLoaded", function () {
@@ -40,14 +41,27 @@ onAuthStateChanged(auth, (user) => {
 async function writeBlog(blogdata) {
   try {
     // Add a new document with a generated ID to the "allBlogData" collection
-    // const docRef = await addDoc(collection(db, "allBlogData"), {
-    //   ...blogdata,
-    // });
-    await setDoc(doc(db, "allBlogData", uID), {
-        ...blogdata,
-      });
-    console.log("Document written with ID: ");
+    const docRef = await addDoc(collection(db, "allBlogData"), {
+      ...blogdata,
+    });
+    console.log("Document written with ID: ", docRef.id);
   } catch (error) {
     console.error("Error adding document: ", error);
   }
+}
+
+
+async function getData() {
+  let uid = localStorage.getItem("user");
+  const userDocRef = doc(db, "users", uid);
+  const userDocSnap = await getDoc(userDocRef);
+  let { email, name } = userDocSnap.data();
+  writeUserDataUi(email, name);
+
+  const blogsQuery = query(collection(db, "allBlogData"), where("uid", "==", uid));
+  const blogsSnapshot = await getDocs(blogsQuery);
+  blogsSnapshot.forEach((doc) => {
+      const blogData = doc.data();
+      displayBlog(blogData);
+  });
 }

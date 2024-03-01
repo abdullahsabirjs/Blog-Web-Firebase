@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
 }
 
@@ -10,12 +10,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo {
-    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d8a74;
 }
 
 .nav-links {
@@ -23,18 +25,31 @@ body {
     align-items: center;
 }
 
+.nav-links a, .nav-button {
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-bar {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 .nav-button {
     padding: 8px 12px;
     margin-left: 10px;
-    background-color: #4CAF50;
+    background-color: #2d8a74;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .nav-button:hover {
-    background-color: #45a049;
+    background-color: #24976f;
 }
 
 .blog-container {
@@ -52,6 +67,11 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     width: 80%;
     max-width: 600px;
+    transition: box-shadow 0.3s;
+}
+
+.blog-post:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .blog-image {
@@ -62,37 +82,58 @@ body {
 
 .blog-title {
     margin: 0 0 10px 0;
+    color: #2d8a74;
 }
 
 .blog-content {
     margin: 0 0 15px 0;
 }
 
-.comment-section {
-    width: 100%;
-}
-
-.comment-form {
-    display: flex;
-    justify-content: space-between;
-}
-
-.comment-input {
-    width: 85%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.comment-button {
-    width: 14%;
-    background-color: #4CAF50;
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2d8a74;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
-.comment-button:hover {
-    background-color: #45a049;
+/* Responsive design */
+@media (max-width: 786px) {
+    .nav-links {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .search-bar {
+        margin-bottom: 10px;
+    }
+
+    .nav-button {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post {
+        width: 90%;
+    }
+
+    .nav-button {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
 }

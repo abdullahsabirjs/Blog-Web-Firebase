@@ -9,7 +9,7 @@
     authDomain: "addi-blog.firebaseapp.com",
     databaseURL: "https://addi-blog-default-rtdb.firebaseio.com",
     projectId: "addi-blog",
-    storageBucket: "addi-blog.appspot.com",
+    storageBucket: "addi-blog.appspot.com", 
     messagingSenderId: "647100897829",
     appId: "1:647100897829:web:6607ee07ccee540de83dcc",
     measurementId: "G-TV3VF85YX1"

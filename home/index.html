@@ -8,20 +8,18 @@
 </head>
 <body>
     <nav class="navbar">
-        <img src="path/to/logo.png" alt="Blog Logo" class="logo">
+        <div class="logo">Addi Blog</div>
         <div class="nav-links">
+            <input type="text" class="search-bar" placeholder="Search...">
             <a href="../Dashbord/index.html" class="nav-button">Dashboard</a>
             <a href="../WriteBlog/index.html" class="nav-button">Write a Blog</a>
-            <button class="nav-button" onclick="logout()">Logout</button>
         </div>
     </nav>
 
     <main class="blog-container">
-        <!-- Blog posts will be dynamically inserted here -->
         <div class="blog-post">
-            <img src="path/to/blog-image.jpg" alt="Blog Post Image" class="blog-image">
             <h2 class="blog-title">Blog Title</h2>
-            <p class="blog-content">Blog content goes here...</p>
+            <p class="blog-content">This is the content of the blog post...</p>
             <div class="comment-section">
                 <form class="comment-form">
                     <input type="text" placeholder="Add a comment..." class="comment-input">
@@ -29,8 +27,12 @@
                 </form>
             </div>
         </div>
-        <!-- Repeat for each blog post -->
+        
     </main>
+
+    <footer class="footer">
+        Powered by Abdullah  @2024
+    </footer>
 
     <script src="script.js" type="module"></script>
 </body>
