@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Dashboard</title>
+    <link rel="stylesheet" href="css/deshboard.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Addi Blog</div>
+    </div>
+    <div class="dashboard">
+        <div class="navbar">
+            <a href="home.html"><button id="homeButton">Home</button></a> 
+            <a href="write.html"><button id="writeBlogButton">Write Blog</button></a>
+            <a href=""><button id="logoutButton">Logout</button></a>
+        </div>
+        <div class="user-profile">
+            <!-- User information -->
+            <div class="user-info">
+                <h2 id="userName">User Name</h2>
+                <p id="userEmail">user@example.com</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        Powered by Abdullah  @2024
+    </footer>
+    <script>
+        window.onscroll = function() {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                document.querySelector('.footer').style.display = 'block';
+            } else {
+                document.querySelector('.footer').style.display = 'none';
+            }
+        };
+    </script>
+    
+
+    <script src="javascript/deshboard.js" type="module"></script>
+</body>
+</html>

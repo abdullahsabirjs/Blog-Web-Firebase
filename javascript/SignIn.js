@@ -1,4 +1,4 @@
-import { auth, signInWithEmailAndPassword, db, doc, getDoc } from "../firebaseConfig.js";
+import { auth, signInWithEmailAndPassword, db, doc, getDoc } from "./firebaseConfig.js";
 
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault(); // Prevent the default form submission
@@ -39,5 +39,5 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
 function changePage() {
     console.log("Page  is  run");
-    window.location.href = "/Dashbord/index.html"
+    window.location.href = "home.html"
 }

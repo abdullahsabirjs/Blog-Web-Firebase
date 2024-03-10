@@ -132,6 +132,17 @@ input[type="file"] {
     }
 }
 
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2d8a74;
+    color: white;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
 @media screen and (max-width: 460px) {
     .header {
         flex-direction: column;

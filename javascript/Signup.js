@@ -1,4 +1,4 @@
-import { auth, createUserWithEmailAndPassword, db, doc, setDoc } from "../firebaseConfig.js";
+import { auth, createUserWithEmailAndPassword, db, doc, setDoc } from "./firebaseConfig.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("signupForm").addEventListener("submit", async function (event) {
@@ -43,6 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function locationChange(){
-  window.location.href  = "/SignIn/SignIn.html"
+function locationChange() {
+  window.location.href = "SignIn.html";
 }

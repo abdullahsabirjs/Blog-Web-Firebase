@@ -1,5 +1,4 @@
-import { db, doc, getDoc, collection, query, where, getDocs, onAuthStateChanged } from "../firebaseConfig.js";
-
+import { db, doc, getDoc, collection, onAuthStateChanged, auth, addDoc, Timestamp } from "./firebaseConfig.js";
 
 let uID;
 document.addEventListener("DOMContentLoaded", function () {
@@ -7,13 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("writeAskForm")
     .addEventListener("submit", function (event) {
       event.preventDefault(); // Prevent the default form submission
-
       // Get the values from the form
       const title = document.getElementById("title").value;
       const category = document.getElementById("category").value;
       const description = document.getElementById("description").value;
-      const imageUpload = document.getElementById("imageUpload").files[0]; // Get the image file
-      // Type and Status with default values if not selected
+      // const imageUpload = document.getElementById("imageUpload").files[0]; // Get the image file
+      // // Type and Status with default values if not selected
       let type = document.querySelector('input[name="type"]:checked')?.value || 'Default Type';
       let status = document.querySelector('input[name="status"]:checked')?.value || 'Default Status';
 
@@ -23,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         Type: type,
         Status: status,
         Description: description,
-        uid: uID, // Add the user's UID to the blog data
+        uid: uID,
+        dateExample: Timestamp.fromDate(new Date()),
+        // Add the user's UID to the blog data
         // Image: imageUpload,
       });
     });
@@ -58,10 +58,10 @@ async function getData() {
   let { email, name } = userDocSnap.data();
   writeUserDataUi(email, name);
 
-  const blogsQuery = query(collection(db, "allBlogData"), where("uid", "==", uid));
-  const blogsSnapshot = await getDocs(blogsQuery);
-  blogsSnapshot.forEach((doc) => {
-      const blogData = doc.data();
-      displayBlog(blogData);
-  });
+  // const blogsQuery = query(collection(db, "allBlogData"), where("uid", "==", uid));
+  // const blogsSnapshot = await getDoc(blogsQuery);
+  // blogsSnapshot.forEach((doc) => {
+  //     const blogData = doc.data();
+  //     displayBlog(blogData);
+  // });
 }

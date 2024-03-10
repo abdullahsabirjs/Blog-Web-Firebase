@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Home</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Addi Blog</div>
+
+      <div class="nav-links">
+        <input type="text" class="search-bar" placeholder="Search..." />
+        <a href="deshboard.html" class="nav-button" id="dashboardButton"
+          >Dashboard</a
+        >
+        <a href="write.html" class="nav-button" id="writeBlogButton"
+          >Write a Blog</a
+        >
+        <a href="Signup.html" class="nav-button" id="loginButton">Login</a>
+      </div>
+    </nav>
+
+    <div class="welcome-section">
+      <div class="welcome-text">
+        <h1>Welcome to Addi Blog</h1>
+        <a href="#blog-section" class="scroll-down">Scroll Down</a>
+      </div>
+    </div>
+    <div id="main_div">
+    
+    </div>
+    <!-- <main class="blog-container" id="blog-section">
+        <div class="blog-post">
+            <h2 class="blog-title">Blog Title</h2>
+            <p class="blog-content">This is the content of the blog post...</p>
+            <div class="comment-section">
+                <form class="comment-form">
+                    <input type="text" placeholder="Add a comment..." class="comment-input">
+                    <button type="submit" class="comment-button">Comment</button>
+                </form>
+            </div>
+        </div>
+    </main> -->
+
+    <footer class="footer">Powered by Abdullah @2024</footer>
+    <script>
+      window.onscroll = function () {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+          document.querySelector(".footer").style.display = "block";
+        } else {
+          document.querySelector(".footer").style.display = "none";
+        }
+      };
+    </script>
+
+    <script src="./javascript/script.js" type="module"></script>
+  </body>
+</html>

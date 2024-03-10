@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write and Ask | Addi-blogs</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/write.css">
 </head>
 <body>
     <div class="header">
         <div class="logo">
             <div class="logo">Addi Blog</div>
         </div>
-        <a href="../Dashbord/index.html"><button class="logout-button">Deshboard</button></a>
+        <a href="deshboard.html"><button class="logout-button">Deshboard</button></a>
     </div>
 
     <div class="content">
@@ -56,14 +56,11 @@
                     </div>
                 </div>
         
-                <!-- Image Upload -->
-                <label for="imageUpload">Upload Image:</label>
-                <input type="file" id="imageUpload" name="imageUpload">
-        
                 <!-- Description -->
                 <label for="description">Description:</label>
                 <textarea id="description" placeholder="Enter description here..."></textarea>
         
+                <button type="button" class="date " >Add Blog  Data</button>
                 <!-- Buttons -->
                 <button type="submit" class="save-button">Save</button>
                 <button type="button" class="cancel-button" onclick="clearForm()">Cancel</button>
@@ -71,11 +68,24 @@
         </div>
     </div>
 
+    <footer class="footer">
+        Powered by Abdullah  @2024
+    </footer>
+
+
     <script>
         function clearForm() {
             document.getElementById('writeAskForm').reset();
         }
+    window.onscroll = function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            document.querySelector('.footer').style.display = 'block';
+        } else {
+            document.querySelector('.footer').style.display = 'none';
+        }
+    };
+
     </script>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./javascript/write.js"></script>
 </body>
 </html>

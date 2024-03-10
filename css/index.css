@@ -52,6 +52,33 @@ body {
     background-color: #24976f;
 }
 
+.welcome-section {
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 200px 20px; /* Increased padding for more height */
+    margin: 20px 0;
+}
+
+
+.welcome-text h1 {
+    font-size: 36px;
+    color: #2d8a74;
+    margin-bottom: 20px;
+}
+
+.scroll-down {
+    background-color: #2d8a74;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.scroll-down:hover {
+    background-color: #24976f;
+}
+
 .blog-container {
     display: flex;
     flex-direction: column;
@@ -74,12 +101,6 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.blog-image {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
 .blog-title {
     margin: 0 0 10px 0;
     color: #2d8a74;
@@ -98,6 +119,20 @@ body {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+#main_div{
+    height: 
+    100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: red;
+    padding: 20px;
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
 }
 
 /* Responsive design */
